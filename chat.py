@@ -50,8 +50,8 @@ class App:
           global key
           msgDecrypt = key.decrypt(msg.value)
           print(key.exportKey())
-          print("wpwp", msg.value)
-          print("wpw", msgDecrypt)
+          print("msg", msg.value)
+          print("msgDecrypt", msgDecrypt)
           msg = msgDecrypt.decode('utf-8')
       self.T.insert(END, "\n " + msg)
   def checkmsg(self):
@@ -83,7 +83,7 @@ print("Waiting For Key..."+topic+"key"+keyTop+othername)
 cons = KafkaConsumer(topic+"key"+keyTop+othername, bootstrap_servers='localhost:9092', group_id=None, auto_offset_reset='earliest')
 
 pub_key_ofOther = next(cons)
-print("wow")
+print("debug")
 print(pub_key_ofOther.value)
 print(pub_key.exportKey())
 pub_key2 = RSA.importKey(pub_key_ofOther.value)
